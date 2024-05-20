@@ -1,3 +1,40 @@
-{
-	"folders": []
-}
+import tkinter as tk
+from tkinter import messagebox
+
+class GamerApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Gamer Info")
+
+        self.label = tk.Label(root, text="Witaj! Jestem Gamerem!", font=("Helvetica", 16))
+        self.label.pack(pady=20)
+
+        self.info_button = tk.Button(root, text="Więcej o mnie", command=self.show_info, font=("Helvetica", 12))
+        self.info_button.pack(pady=10)
+
+        self.games_button = tk.Button(root, text="Moje ulubione gry", command=self.show_games, font=("Helvetica", 12))
+        self.games_button.pack(pady=10)
+
+    def show_info(self):
+        info = (
+            "Cześć! Jestem zapalonym graczem. Uwielbiam spędzać czas grając "
+            "w różne gry wideo, od klasyków po najnowsze tytuły. Moje hobby "
+            "to również śledzenie nowości w świecie gier i udział w turniejach gamingowych."
+        )
+        messagebox.showinfo("O mnie", info)
+
+    def show_games(self):
+        games = (
+            "Moje ulubione gry:\n"
+            "1. The Witcher 3: Wild Hunt\n"
+            "2. Cyberpunk 2077\n"
+            "3. Red Dead Redemption 2\n"
+            "4. League of Legends\n"
+            "5. Minecraft"
+        )
+        messagebox.showinfo("Ulubione gry", games)
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = GamerApp(root)
+    root.mainloop()
