@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiktoria Jabłońska - Portfolio</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #1f1f1f;
+            color: #ffa500;
+            margin: 0;
+            border-bottom: 2px solid #ffa500;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            width: 100%;
+        }
+        .tab {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #333;
+            margin-right: 5px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            position: relative;
+        }
+        .tab:last-child {
+            margin-right: 0;
+        }
+        .tab:hover {
+            background-color: #555;
+            transform: translateY(-5px);
+        }
+        .tab span {
+            margin-left: 10px;
+        }
+        .tab.active {
+            background-color: #ff4500;
+            border-top: 2px solid #ffa500;
+        }
+        .tab:nth-child(2).active {
+            background-color: #00ff00;
+            border-top: 2px solid #00cc00;
+        }
+        .tab:nth-child(3).active {
+            background-color: #1e90ff;
+            border-top: 2px solid #0077cc;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #333;
+            background-color: #1f1f1f;
+            margin: 20px 0;
+            border-radius: 5px;
+            width: 100%;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+        .profile-text {
+            text-align: center;
+        }
+        .tab::after {
+            font-size: 20px;
+            position: absolute;
+            top: 10px;
+            right: -30px;
+        }
+        .tab:first-child::after {
+            content: "\1F3AE"; /* Unicode dla ikony pada */
+        }
+        .tab:nth-child(2)::after {
+            content: "\1F4BB"; /* Unicode dla ikony komputera */
+        }
+        .tab:nth-child(3)::after {
+            content: "\1F4C5"; /* Unicode dla ikony kalendarza */
+        }
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+            }
+            .tab {
+                margin-bottom: 10px;
+            }
+            .tab:last-child {
+                margin-bottom: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1>Wiktoria Jabłońska - Streamerka </h1>
+<div class="container">
+    <div class="tabs">
+        <div class="tab active" onclick="showTab('kim-jestem')">
+            Kim jestem
+            <span></span>
+        </div>
+        <div class="tab" onclick="showTab('moj-sprzet')">
+            Mój sprzęt
+            <span></span>
+        </div>
+        <div class="tab" onclick="showTab('harmonogram')">
+            Harmonogram
+            <span></span>
+        </div>
+    </div>
+
+    <div id="kim-jestem" class="tab-content active">
+        <h2>Kim jestem</h2>
+        <div class="profile-text">
+            <p>Cześć jestem Wiktoria!</p>
+            <p>Mieszkam w pobliżu Trójmiasta, na kanale zobaczysz głównie GTA RP, CS:GO, R6, The Forest, Rust, ale gram w inne tytuły!</p>
+            <p>Zostaw followa żeby być na bieżąco!</p>
+            <p>🎮</p> <!-- Unicode dla ikony pada -->
+        </div>
+    </div>
+
+    <div id="moj-sprzet" class="tab-content">
+        <h2>Mój sprzęt</h2>
+        <ul>
+            <li>HyperX 32GB 3200MHz Fury RGB CL16 (4x8GB)</li>
+            <li>Karta graficzna MSI Radeon RX 6750 XT MECH 2X OC 12GB</li>
+            <li>AMD Ryzen 5 4500</li>
+            <li>Monitor Philips 27" 272E1GAJ</li>
+            <li>Monitor Samsung LS27C360 27</li>
+            <li>Mysz: LIX Plus Wireless</li>
+            <li>Słuchawki: Razer Barracuda X 2022</li>
+        </ul>
+        <p style="text-align:center;">🖥️</p> <!-- Unicode dla ikony komputera -->
+    </div>
+
+    <div id="harmonogram" class="tab-content">
+        <h2>Harmonogram</h2>
+        <p>Kalendarz z terminami streamów pojawi się wkrótce!</p>
+        <p style="text-align:center;">📅</p> <!-- Unicode dla ikony kalendarza -->
+    </div>
+</div>
+
+<script>
+    function showTab(tabId) {
+        const tabs = document.querySelectorAll('.tab');
+        const contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.classList.remove('active');
+        });
+        
+        contents.forEach(content => {
+            content.classList.remove('active');
+        });
+
+        document.querySelector('.tab[onclick="showTab(\'' + tabId + '\')"]').classList.add('active');
+        document.getElementById(tabId).classList.add('active');
+    }
+</script>
+
+</body>
+</html>
+
